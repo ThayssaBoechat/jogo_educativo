@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Inglês para Crianças</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="start-screen">
+        <img src="images/fundo_inicio.png" alt="Fundo" class="start-bg">
+        <img src="images/botao_start.png" alt="Start" id="start-btn" class="start-btn">
+    </div>
+    <div class="game-container">
+        <div class="scenario-container">
+            <div class="scenario" id="outdoor">
+                <div class="interactive-object" data-pt="árvore" data-en="tree">
+                    <img src="images/arvore.png" alt="Árvore">
+                </div>
+                <div class="interactive-object" data-pt="cachorro" data-en="dog">
+                    <img src="images/cachorro.png" alt="Cachorro">
+                </div>
+                <div class="interactive-object" data-pt="pássaro" data-en="bird">
+                    <img src="images/passaro.png" alt="Pássaro">
+                </div>
+                <div class="interactive-object" data-pt="pessoa" data-en="person">
+                    <img src="images/pessoa.png" alt="Pessoa">
+                </div>
+            </div>
+        </div>
+        <div class="audio-container">
+            <audio id="audio-player" src=""></audio>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

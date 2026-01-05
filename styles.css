@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.game-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.scenario-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.scenario {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    flex: 1;
+}
+
+#outdoor {
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Posicionamento dos objetos */
+.interactive-object {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.interactive-object:hover {
+    transform: scale(1.2);
+    z-index: 100;
+}
+
+.interactive-object img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Posições específicas dos objetos */
+.interactive-object[data-pt="árvore"] {
+    position: absolute;
+    width: 300px;
+    left: 30%;
+    top: 33%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+.interactive-object[data-pt="árvore"] img {
+    width: 90%;
+    height: auto;
+}
+
+.interactive-object[data-pt="árvore"]:hover {
+    transform: scale(1.1);
+}
+
+.interactive-object[data-pt="cachorro"] {
+    position: absolute;
+    width: 157px;
+    left: 8%;
+    top: 59%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+.interactive-object[data-pt="cachorro"] img {
+    width: 100%;
+    height: auto;
+}
+
+.interactive-object[data-pt="cachorro amarelo"] {
+    left: 200px;
+    bottom: 150px;
+    width: 80px;
+}
+
+.interactive-object[data-pt="cachorro marrom"] {
+    right: 250px;
+    bottom: 150px;
+    width: 80px;
+}
+
+.interactive-object[data-pt="pato"] {
+    left: 450px;
+    bottom: 200px;
+    width: 60px;
+}
+
+.interactive-object[data-pt="cisne"] {
+    left: 350px;
+    top: 300px;
+    width: 70px;
+}
+
+.interactive-object[data-pt="lago"] {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    z-index: -1;
+}
+
+.interactive-object[data-pt="banco"] {
+    right: 200px;
+    top: 250px;
+    width: 100px;
+}
+
+.interactive-object[data-pt="pássaro"] {
+    position: absolute;
+    width: 80px;
+    left: 50%;
+    top: 9%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+.interactive-object[data-pt="pássaro"] img {
+    width: 100%;
+    height: auto;
+}
+
+.interactive-object[data-pt="coelho"] {
+    left: 300px;
+    bottom: 120px;
+    width: 50px;
+}
+
+.interactive-object[data-pt="pessoa"] {
+    position: absolute;
+    width: 200px;
+    left: 75%;
+    top: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+.interactive-object[data-pt="pessoa"] img {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilo do texto que aparece abaixo dos objetos */
+.interactive-object::after {
+    content: attr(data-pt) " - " attr(data-en);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid #3498db;
+    display: none;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.interactive-object:hover::after {
+    display: block;
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0% { transform: translateX(-50%) scale(0.8); }
+    50% { transform: translateX(-50%) scale(1.1); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+#start-screen {
+    position: fixed;
+    z-index: 9999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #87ceeb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1;
+    top: 0; left: 0;
+}
+
+.start-title {
+    z-index: 2;
+    color: #ff944d;
+    font-size: 4vw;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 8px #fff, 2px 2px 0 #000;
+}
+
+.start-btn {
+    z-index: 2;
+    width: 180px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-top: 80px;
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+} 
